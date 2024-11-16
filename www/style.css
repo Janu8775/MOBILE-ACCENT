@@ -10,12 +10,13 @@ body {
 /* Ensures the square container is centered and responsive */
 .square {
     position: relative;
-    width: 400px; /* Default size for desktop */
-    height: 400px; /* Default size for desktop */
+    width: 300px; /* Default size for desktop */
+    height: 300px; /* Default size for desktop */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 0; /* Removed margin to move it closer to the top */
+    padding-top: 20px; /* Optional: Slight padding at the top */
 }
 
 /* Circle styling and animations */
@@ -46,46 +47,158 @@ canvas {
 
 /* Section containing the canvas and the square container */
 section#Oval {
-    margin-top: 10vh;
+    margin-top: 0; /* Set margin-top to 0 to move everything closer to the top */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align the content to the top */
+    height: 100vh; /* Ensure the section fills the entire viewport height */
 }
 
 /* Font size adjustments for smaller devices */
 h5.text-light {
     font-size: 1.5rem; /* Default font size for mobile */
     color: white;
+    margin-top: 10; /* Move text above */
+    margin-bottom: 5px; /* Adds spacing below */
 }
-
-/* Bootstrap container adjustments for mobile */
-@media (max-width: 768px) {
-    .square {
-        width: 300px; /* Smaller width for tablets */
-        height: 300px; /* Smaller height for tablets */
-    }
-    canvas {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media (max-width: 576px) {
-    .square {
-        width: 250px; /* Smaller width for mobile */
-        height: 250px; /* Smaller height for mobile */
-    }
-    h5.text-light {
-        font-size: 1.5rem; /* Adjusted font size for mobile */
-    }
-    canvas {
-        width: 100%;
-        height: auto;
-    }
-}
-
 /* Adjust slider sizes for mobile */
 #slider-range, #slider-test {
     width: 90% !important;
     margin: auto;
+}
+
+/* Move Text Input field and Ask Me Anything text */
+#TextInput {
+    background-color: #0c0c0ca8;
+    border-color: blue;
+    box-shadow: 0 0 20px rgb(25, 0, 255),
+        inset 0 0 0px rgb(25, 0, 255);
+    border-radius: 8px;
+    color: white;
+    padding: 3px 0px 3px 20px;
+    margin: 0 10%; /* Reduce margin for better responsiveness */
+    margin-top: 27px;
+    width: 80%; /* Default width for mobile */
+}
+
+
+/* Placeholder Styling */
+#TextInput::placeholder {
+    color: #aaa; /* Lighter color for the placeholder text */
+    opacity: 1; /* Ensure full opacity for the placeholder */
+}
+
+.input-field {
+    background-color: transparent;
+    border: none;
+    width: 95%;
+    outline: none;
+    color: white;
+    font-family: cursive;
+}
+
+/* Ask Me Anything text adjustment */
+h5.ask-text {
+    font-size: 1.2rem; /* Adjust font size if needed */
+    color: white;
+    margin-top: -15px; /* Move it slightly upwards */
+    margin-bottom: 10px; /* Add some space below */
+}
+
+/* Button Styling */
+.glow-on-hover {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 0px;
+    margin-left: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #181818a8;
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #TextInput {
+        width: 90%; /* Slightly larger input width for tablets */
+        margin: 0 5%; /* Adjust margins for better spacing on tablets */
+    }
+}
+
+/* Responsive adjustments for devices with max-width 576px (mobile) */
+@media (max-width: 576px) {
+    #TextInput {
+        width: 95%; /* Wider input on small mobile screens */
+        margin: 0 2.5%; /* Further reduce margins for mobile devices */
+    }
+}
+
+#siri-container {
+    width: 100%;
+    max-width: 800px; /* Limit the maximum width */
+    height: 20vh; /* Dynamic height */
+    max-height: 200px; /* Limit the maximum height */
+    padding: 3px 0px 3px 20px;
+    margin: 0 10%; /* Reduce margin for better responsiveness */
+    margin-top: 27px;
+    align-content: center;
+    
 }
