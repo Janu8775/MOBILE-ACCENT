@@ -58,9 +58,10 @@ section#Oval {
 h5.text-light {
     font-size: 1.5rem; /* Default font size for mobile */
     color: white;
-    margin-top: 10; /* Move text above */
+    margin-top: 500; /* Move text above */
     margin-bottom: 5px; /* Adds spacing below */
 }
+
 /* Adjust slider sizes for mobile */
 #slider-range, #slider-test {
     width: 90% !important;
@@ -70,15 +71,17 @@ h5.text-light {
 /* Move Text Input field and Ask Me Anything text */
 #TextInput {
     background-color: #0c0c0ca8;
-    border-color: blue;
-    box-shadow: 0 0 20px rgb(25, 0, 255),
-        inset 0 0 0px rgb(25, 0, 255);
+    border-color: rgb(252, 15, 232);
+    box-shadow: 0 0 20px rgb(245, 8, 186),
+        inset 0 0 0px rgb(240, 4, 228);
     border-radius: 8px;
     color: white;
-    padding: 3px 0px 3px 20px;
+    padding: 3px 0px 3px 0px;
     margin: 0 10%; /* Reduce margin for better responsiveness */
-    margin-top: 27px;
+    margin-top: 5px; /* Adjusted to move it higher */
     width: 80%; /* Default width for mobile */
+    position: relative; /* Ensure flexibility in layout */
+    top: -50px; 
 }
 
 
@@ -86,6 +89,7 @@ h5.text-light {
 #TextInput::placeholder {
     color: #aaa; /* Lighter color for the placeholder text */
     opacity: 1; /* Ensure full opacity for the placeholder */
+    
 }
 
 .input-field {
